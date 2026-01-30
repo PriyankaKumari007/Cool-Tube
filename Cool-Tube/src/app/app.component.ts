@@ -34,4 +34,21 @@ export class AppComponent {
       });
     }
   }
+
+  /* Added methods to handle carousel scrolling */
+  scrollLeft() {
+    const container = document.querySelector('.photo-container') as HTMLElement;
+    container.scrollBy({ left: -300, behavior: 'smooth' });
+  }
+
+  scrollRight() {
+    const container = document.querySelector('.photo-container') as HTMLElement;
+    container.scrollBy({ left: 300, behavior: 'smooth' });
+  }
+
+  /* Added method to handle mouse wheel scrolling for the carousel */
+  onCarouselScroll(event: WheelEvent) {
+    const container = document.querySelector('.photo-container') as HTMLElement;
+    container.scrollBy({ left: event.deltaY < 0 ? -300 : 300, behavior: 'smooth' });
+  }
 }

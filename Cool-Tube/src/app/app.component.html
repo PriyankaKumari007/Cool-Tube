@@ -6,16 +6,16 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="photo-container" *ngFor="let photo of photos">
-  <h3>{{ photo.user }}</h3>
-  <img [src]="photo.webformatURL" [alt]="photo.tags" />
-</div>
- <div class="video-container" *ngFor="let video of videos">
-  <h3>{{ video.user.name }}</h3>
-  <video width="320" height="240" controls>
-    <source [src]="video.video_files[0].link" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
+  <div class="carousel-container">
+    <div class="photo-container" (wheel)="onCarouselScroll($event)">
+      <div class="photo-item" *ngFor="let photo of photos">
+        <img [src]="photo.webformatURL" [alt]="photo.tags" />
+        <h3>{{ photo.user }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-illustration">
+    <p>Swipe left or right to explore more photos!</p>
+  </div>
 </body>
 </html>
