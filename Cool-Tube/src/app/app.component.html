@@ -7,14 +7,17 @@
 </head>
 <body>
   <div class="app-container">
-    <div class="carousel-container">
-      <div class="photo-container" (wheel)="onCarouselScroll($event)">
-        <div class="photo-item" *ngFor="let photo of photos">
-          <img [src]="photo.webformatURL" [alt]="photo.tags" />
-          <h3>{{ photo.user }}</h3>
-        </div>
-      </div>
-    </div>
+   <div
+  class="carousel-container"
+  (scroll)="onHorizontalScroll($event)">
+
+  <div class="photo-item" *ngFor="let photo of visiblePhotos">
+    <img [src]="photo.webformatURL" [alt]="photo.tags" loading="lazy" />
+    <h3>{{ photo.user }}</h3>
+  </div>
+
+</div>
+
   </div>
 </body>
 </html>

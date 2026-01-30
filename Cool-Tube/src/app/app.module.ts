@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Home/home/home.component';
@@ -13,9 +13,10 @@ import { HttpClientModule } from '@angular/common/http';
     CardComponent
   ],
   imports: [
+    ScrollingModule,
     BrowserModule,
     AppRoutingModule,
-     HttpClientModule
+     HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

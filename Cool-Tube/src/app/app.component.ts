@@ -12,7 +12,12 @@ import { PixabayService } from './services/services/pixabay-services/pixabay.ser
 export class AppComponent {
   title = 'Cool-Tube';
   videos:any[] = [];
- photos: any[] = [];
+photos: any[] = [];        // all fetched photos
+visiblePhotos: any[] = []; // shown in UI
+
+pageSize = 20;
+currentIndex = 0;
+
   constructor(public pexelsService: PexelsService,
     private pixabayService: PixabayService
   ) { }
@@ -27,15 +32,38 @@ export class AppComponent {
     //   this.photos = data.hits; // 'hits' contains the array of photos
     // });
      this.loadAllPhotos('nature');
+     
   }
-    loadAllPhotos(query: string): void {
-    const totalPages = 3; // Fetch up to 3 pages (adjust as needed)
-    for (let page = 1; page <= totalPages; page++) {
-      this.pixabayService.getPhotos(query, 200, page).subscribe((data: any) => {
-        this.photos = [...this.photos, ...data.hits]; // Combine results
-      });
-    }
+   loadAllPhotos(query: string) {
+  this.pixabayService.getPhotos(query, 200, 1).subscribe((data: any) => {
+    this.photos = data.hits;
+    this.loadMorePhotos(); // initial load
+  });
+}
+
+loadMorePhotos() {
+  const nextChunk = this.photos.slice(
+    this.currentIndex,
+    this.currentIndex + this.pageSize
+  );
+
+  this.visiblePhotos.push(...nextChunk);
+  this.currentIndex += this.pageSize;
+}
+
+
+onHorizontalScroll(event: Event) {
+  const element = event.target as HTMLElement;
+
+  const nearEnd =
+    element.scrollLeft + element.clientWidth >=
+    element.scrollWidth - 100;
+
+  if (nearEnd) {
+    this.loadMorePhotos();
   }
+}
+
 
   /* Added methods to handle carousel scrolling */
   scrollLeft() {

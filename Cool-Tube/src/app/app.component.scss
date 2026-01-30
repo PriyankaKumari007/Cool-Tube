@@ -136,3 +136,16 @@ footer {
   font-size: 0.9rem;
   color: #777;
 }
+
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  padding: 12px;
+  scroll-behavior: smooth;
+}
+
+.photo-item {
+  min-width: 220px;
+  flex-shrink: 0;
+}
