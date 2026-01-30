@@ -1,0 +1,138 @@
+/* Converted from SASS to SCSS */
+.video-container {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+
+  video {
+    max-width: 100%;
+  }
+}
+
+/* Improved overall UI by adjusting spacing and layout */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Better font for readability */
+
+  background-attachment: fixed; /* Ensure background stays fixed during scrolling */
+}
+
+.carousel-container {
+    height:510px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  margin: 0 auto; /* Center the carousel */
+  max-width: 1200px; /* Limit the width of the content */
+  background-color: rgb(8, 13, 16); /* Solid dark background */
+  color: #fff; /* Ensure text is visible on dark background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.photo-container {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Prevent vertical scrolling */
+  scroll-snap-type: x mandatory; /* Snap items into place */
+  gap: 20px; /* Space between items */
+  padding: 20px;
+  margin: 0 auto; /* Center the carousel */
+  max-width: 100%;
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+/* Hide scrollbar for all browsers */
+.photo-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.photo-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.photo-item {
+  flex: 0 0 auto; /* Prevent items from shrinking */
+  scroll-snap-align: center; /* Snap items to the center */
+  text-align: center; /* Center align content */
+ 
+}
+
+.photo-item img {
+  width: 100%; /* Ensure images fit within their container */
+  height: 300px; /* Set a fixed height for all images */
+  object-fit: cover; /* Crop images to fill the container while maintaining aspect ratio */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.photo-item img:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+.photo-item h3 {
+  margin-top: 10px; /* Add space between image and name */
+  font-size: 1rem; /* Adjust font size */
+  color: #333; /* Darker text color */
+ 
+  padding: 10px 15px; /* Increased padding for better readability */
+  border-radius: 5px; /* Rounded corners */
+  display: inline-block; /* Ensure background wraps tightly around the text */
+  font-size: 1.2rem; /* Increased font size for better visibility */
+}
+
+/* Animation for itemspeed */
+@keyframes itemspeed {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add smooth scrolling for the carousel */
+.photo-container {
+  scroll-behavior: smooth;
+}
+
+/* Updated styles for carousel and added illustration */
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  margin: 0 auto; /* Center the carousel */
+  max-width: 1200px; /* Limit the width of the content */
+ 
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.carousel-illustration {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #555;
+  text-align: center;
+  font-style: italic;
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}

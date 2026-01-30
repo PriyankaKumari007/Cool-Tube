@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="app-container">
+    <div class="carousel-container">
+      <div class="photo-container" (wheel)="onCarouselScroll($event)">
+        <div class="photo-item" *ngFor="let photo of photos">
+          <img [src]="photo.webformatURL" [alt]="photo.tags" />
+          <h3>{{ photo.user }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
