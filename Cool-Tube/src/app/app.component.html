@@ -6,16 +6,15 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="carousel-container">
-    <div class="photo-container" (wheel)="onCarouselScroll($event)">
-      <div class="photo-item" *ngFor="let photo of photos">
-        <img [src]="photo.webformatURL" [alt]="photo.tags" />
-        <h3>{{ photo.user }}</h3>
+  <div class="app-container">
+    <div class="carousel-container">
+      <div class="photo-container" (wheel)="onCarouselScroll($event)">
+        <div class="photo-item" *ngFor="let photo of photos">
+          <img [src]="photo.webformatURL" [alt]="photo.tags" />
+          <h3>{{ photo.user }}</h3>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="carousel-illustration">
-    <p>Swipe left or right to explore more photos!</p>
   </div>
 </body>
 </html>
