@@ -1,2 +1,275 @@
 /* Converted from SASS to SCSS */
-/* Add your SCSS styles here */
+.video-container {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+
+  video {
+    max-width: 100%;
+  }
+}
+
+/* Improved overall UI by adjusting spacing and layout */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Better font for readability */
+
+  background-attachment: fixed; /* Ensure background stays fixed during scrolling */
+}
+
+.carousel-container {
+    height:510px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  margin: 0 auto; /* Center the carousel */
+  max-width: 1200px; /* Limit the width of the content */
+ 
+  color: #fff; /* Ensure text is visible on dark background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.photo-container {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Prevent vertical scrolling */
+  scroll-snap-type: x mandatory; /* Snap items into place */
+  gap: 20px; /* Space between items */
+  padding: 20px;
+  margin: 0 auto; /* Center the carousel */
+  max-width: 100%;
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+/* Hide scrollbar for all browsers */
+.photo-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.photo-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.photo-item {
+  flex: 0 0 auto; /* Prevent items from shrinking */
+  scroll-snap-align: center; /* Snap items to the center */
+  text-align: center; /* Center align content */
+ 
+}
+
+
+.photo-item img:hover {
+  transform: scale(1.06);
+  border-color: rgba(255, 255, 255, 0.35);
+
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 153, 255, 0.25); /* subtle glow */
+}
+
+
+.photo-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+
+  border-radius: 14px;
+
+  /* POP effect */
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  background: #000;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.photo-item h3 {
+  margin-top: 12px;
+  padding: 8px 14px;
+
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+
+  color: #eaeaea; /* light text */
+  background: rgba(0, 0, 0, 0.55); /* glass effect */
+
+  border-radius: 20px;
+  display: inline-block;
+
+  backdrop-filter: blur(6px);
+}
+.photo-item {
+  padding: 10px;
+  border-radius: 18px;
+  transition: transform 0.3s ease;
+}
+
+.photo-item:hover {
+  transform: translateY(-4px);
+}
+
+.image-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.image-wrapper img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+
+  border-radius: 16px;
+
+  transition: transform 0.4s ease;
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 16px;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.4),
+    transparent
+  );
+
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+.overlay h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+.photo-item:hover img {
+  transform: scale(1.08);
+}
+
+.photo-item:hover .overlay {
+  opacity: 1;
+}
+.photo-item {
+  position: relative;
+}
+
+.photo-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  pointer-events: none;
+
+  box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.6); /* Netflix red */
+  transition: box-shadow 0.3s ease;
+}
+
+.photo-item:hover::after {
+  box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.8);
+}
+
+
+.carousel-container {
+  position: relative;
+  background: linear-gradient(
+    to right,
+    #120000 0%,
+    #2b0000 30%,
+    #000000 70%,
+    #050505 100%
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Animation for itemspeed */
+@keyframes itemspeed {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add smooth scrolling for the carousel */
+.photo-container {
+  scroll-behavior: smooth;
+}
+
+/* Updated styles for carousel and added illustration */
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  margin: 0 auto; /* Center the carousel */
+  max-width: 1200px; /* Limit the width of the content */
+ 
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.carousel-illustration {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #555;
+  text-align: center;
+  font-style: italic;
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  padding: 12px;
+  scroll-behavior: smooth;
+}
+
+.photo-item {
+  min-width: 220px;
+  flex-shrink: 0;
+}
