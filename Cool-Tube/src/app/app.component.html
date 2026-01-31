@@ -12,9 +12,15 @@
   (scroll)="onHorizontalScroll($event)">
 
   <div class="photo-item" *ngFor="let photo of visiblePhotos">
+  <div class="image-wrapper">
     <img [src]="photo.webformatURL" [alt]="photo.tags" loading="lazy" />
-    <h3>{{ photo.user }}</h3>
+
+    <div class="overlay">
+      <h3>{{ photo.user }}</h3>
+    </div>
   </div>
+</div>
+
 
 </div>
 
