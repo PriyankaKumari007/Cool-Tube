@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+</head>
+<body>
+    <header class="app-header">
+  <div class="header-left">
+    <h1 class="logo">Cool<span>Tube</span></h1>
+  </div>
+
+  <nav class="header-nav">
+  <a
+    *ngFor="let item of categories | keyvalue"  (click)="selectCategory(item.value)"
+   >
+    {{ item.key }}
+  </a>
+</nav>
+
+
+  <div class="header-right">
+    <!-- <input type="text" placeholder="Search videos..." /> -->
+    <div class="avatar">P</div>
+  </div>
+</header>
+
+
+</body>
+</html>

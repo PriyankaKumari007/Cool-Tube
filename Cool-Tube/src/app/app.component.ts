@@ -30,7 +30,6 @@ export class AppComponent {
 
     this.loadAllPhotos('nature');
   }
-
   
   loadAllPhotos(query: string) {
     this.pixabayService.getPhotos(query, 200, 1).subscribe((data: any) => {

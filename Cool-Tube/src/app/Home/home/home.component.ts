@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { HeaderComponent } from 'src/app/Header/header/header.component';
 import { PexelsService } from 'src/app/services/services/pexels.service';
 import { PixabayService } from 'src/app/services/services/pixabay-services/pixabay.service';
 
@@ -6,17 +7,27 @@ import { PixabayService } from 'src/app/services/services/pixabay-services/pixab
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-   standalone:false
+  standalone: false,
 })
 export class HomeComponent {
- title = 'Cool-Tube';
+  category: string = 'nature';
+  title = 'Cool-Tube';
   videos: any[] = [];
   photos: any[] = []; // all fetched photos
   visiblePhotos: any[] = []; // shown in UI
 
   pageSize = 20;
   currentIndex = 0;
-
+  categories = {
+    Nature: 'nature',
+    Animals: 'animals',
+    Travel: 'travel',
+    Sports: 'sports',
+    Music: 'music',
+    Feelings: 'feelings',
+    Health: 'health',
+    People: 'people',
+  };
   constructor(
     public pexelsService: PexelsService,
     private pixabayService: PixabayService,
@@ -27,12 +38,27 @@ export class HomeComponent {
       this.videos = response.videos;
       console.log(this.videos);
     });
-
-    this.loadAllPhotos('nature');
+    console.log('Home received category:', this.category);
+    this.loadAllPhotos(this.category);
   }
 
-  
+  selectCategory(category: string) {
+    if (this.category === category) return; // optional optimization
+
+    this.category = category;
+    console.log('Category changed to:', this.category);
+
+    // RESET state
+    this.photos = [];
+    this.visiblePhotos = [];
+    this.currentIndex = 0;
+
+    // FETCH new data
+    this.loadAllPhotos(this.category);
+  }
+
   loadAllPhotos(query: string) {
+    console.log('Loading photos for category:', query);
     this.pixabayService.getPhotos(query, 200, 1).subscribe((data: any) => {
       this.photos = data.hits;
       this.loadMorePhotos(); // initial load

@@ -1,0 +1,120 @@
+/* ================= HEADER ================= */
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 28px;
+
+  background: linear-gradient(
+    to right,
+    #0f0000,
+    #1c0000,
+    #000000
+  );
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+/* Logo */
+.logo {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.logo span {
+  color: #e50914; /* Netflix red */
+}
+
+/* Navigation */
+.header-nav {
+  display: flex;
+  gap: 22px;
+}
+
+.header-nav a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #d0d0d0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.header-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #e50914;
+  transition: width 0.3s ease;
+}
+
+.header-nav a:hover {
+  color: #ffffff;
+}
+
+.header-nav a:hover::after {
+  width: 100%;
+}
+
+/* Right section */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Search */
+.header-right input {
+  padding: 8px 14px;
+  width: 180px;
+
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  outline: none;
+
+  transition: border-color 0.3s ease, width 0.3s ease;
+}
+
+.header-right input::placeholder {
+  color: #aaa;
+}
+
+.header-right input:focus {
+  width: 220px;
+  border-color: #e50914;
+}
+
+/* Avatar */
+.avatar {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e50914, #ff4b2b);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+
+  box-shadow: 0 4px 10px rgba(229, 9, 20, 0.6);
+}
