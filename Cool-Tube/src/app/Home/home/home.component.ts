@@ -15,8 +15,8 @@ export class HomeComponent {
   videos: any[] = [];
   photos: any[] = []; // all fetched photos
   visiblePhotos: any[] = []; // shown in UI
-
-  pageSize = 20;
+  showProfile = false;
+  pageSize = 80;
   currentIndex = 0;
   categories = {
     Nature: 'nature',
@@ -86,23 +86,9 @@ export class HomeComponent {
     }
   }
 
-  /* Added methods to handle carousel scrolling */
-  scrollLeft() {
-    const container = document.querySelector('.photo-container') as HTMLElement;
-    container.scrollBy({ left: -300, behavior: 'smooth' });
-  }
+ 
 
-  scrollRight() {
-    const container = document.querySelector('.photo-container') as HTMLElement;
-    container.scrollBy({ left: 300, behavior: 'smooth' });
-  }
-
-  /* Added method to handle mouse wheel scrolling for the carousel */
-  onCarouselScroll(event: WheelEvent) {
-    const container = document.querySelector('.photo-container') as HTMLElement;
-    container.scrollBy({
-      left: event.deltaY < 0 ? -300 : 300,
-      behavior: 'smooth',
-    });
-  }
+  toggleProfile() {
+  this.showProfile = !this.showProfile;
+}
 }

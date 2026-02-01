@@ -25,3 +25,20 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## HOISTING SERVER : https://dashboard.render.com/static/srv-d5vj81cr85hc73eah520/deploys/dep-d5vj81kr85hc73eah590
+
+🔁 What to do now (step-by-step)
+
+Go to Render → Service → Settings
+
+Set Root Directory → Cool-Tube
+
+Set Build Command → npm install && npm run build
+
+Set Publish Directory → dist/cool-tube
+
+Save
+
+Manual Deploy → Deploy latest commit

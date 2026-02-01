@@ -362,21 +362,97 @@ footer {
   border-color: #e50914;
 }
 
-/* Avatar */
+.header-right {
+  position: relative;
+}
+
+/* Avatar — match Netflix accent */
 .avatar {
   width: 36px;
   height: 36px;
-
-  border-radius: 50%;
-  background: linear-gradient(135deg, #e50914, #ff4b2b);
-
+  background: linear-gradient(145deg, #e50914, #b00610);
+  color: #ffffff;
+  border-radius: 20px; /* square like Netflix */
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-weight: 700;
-  color: #fff;
   cursor: pointer;
 
-  box-shadow: 0 4px 10px rgba(229, 9, 20, 0.6);
+  box-shadow:
+    0 4px 12px rgba(229, 9, 20, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 6px 20px rgba(229, 9, 20, 0.8);
+}
+
+/* Popup — same theme as carousel + header */
+.profile-popup {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  width: 200px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.95)
+  );
+
+  border-radius: 10px;
+  padding: 8px 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(229, 9, 20, 0.35);
+
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+
+  animation: popupFade 0.18s ease-out;
+}
+
+/* Popup links */
+.profile-popup a {
+  display: block;
+  padding: 12px 18px;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+
+  color: #d0d0d0;
+  text-decoration: none;
+
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.profile-popup a:hover {
+  background: rgba(229, 9, 20, 0.15);
+  color: #ffffff;
+}
+
+/* subtle divider look */
+.profile-popup a:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* animation */
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }

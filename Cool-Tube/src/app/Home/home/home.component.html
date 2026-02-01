@@ -21,9 +21,26 @@
 
 
         <div class="header-right">
-            <!-- <input type="text" placeholder="Search videos..." /> -->
-            <div class="avatar">P</div>
+            <div class="avatar" (click)="toggleProfile()">P</div>
+
+            <!-- Popup -->
+            <div class="profile-popup" *ngIf="showProfile">
+                <a href="https://www.linkedin.com/in/priyanka-kumari-192487210" target="_blank">
+                    🔗 LinkedIn
+                </a>
+
+                <a href="https://github.com/PriyankaKumari007/" target="_blank">
+                    💻 GitHub
+                </a>
+
+                <!-- <a href="mailto:priyankakumari6709@gmail.com">
+                    📧 <span class="value">priyankakumari6709&#64;gmail.com</span>
+                </a> -->
+
+
+            </div>
         </div>
+
     </header>
 
     <div class="app-container">
